@@ -5,7 +5,7 @@ function pyok() {
     do
         NOTFOUND=`wine python --version | grep 3.8` || true
         if [ "$NOTFOUND" != "" ]; then
-            rm python-3.8.10.exe
+            rm python-3.8.10-amd64.exe
             break
         fi
         sleep 1
@@ -13,8 +13,8 @@ function pyok() {
 }
 pyok &
 # download python-3.8.10.exe
-wget https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe
+wget https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe
 # start install
-wine start python-3.8.10.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
+wine start python-3.8.10-amd64.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
 wait
 sleep 5
