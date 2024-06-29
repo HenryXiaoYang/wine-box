@@ -1,17 +1,12 @@
 FROM tianon/wine:8.0.2
 
 #change source
-RUN echo "# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释\n\
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free\n\
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free\n\
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free\n\
-\n\
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free\n\
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free\n\
-\n\
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free\n\
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free\n\
-\n\
-# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换\n\
 deb https://security.debian.org/debian-security bullseye-security main contrib non-free\n\
 # deb-src https://security.debian.org/debian-security bullseye-security main contrib non-free" > /etc/apt/sources.list
 
