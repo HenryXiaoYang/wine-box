@@ -1,7 +1,6 @@
 FROM tianon/wine:8.0.2
 
 #change source
-# 删除/etc/apt/sources.list文件中的文本全部删除，再写入新内容
 RUN echo "# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释" > /etc/apt/sources.list \
     && echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list \
     && echo "# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free" >> /etc/apt/sources.list \
@@ -16,6 +15,8 @@ RUN echo "# 默认注释了源码镜像以提高 apt update 速度，如有需�
     && echo "deb https://security.debian.org/debian-security bullseye-security main contrib non-free" >> /etc/apt/sources.list \
     && echo "# deb-src https://security.debian.org/debian-security bullseye-security main contrib non-free" >> /etc/apt/sources.list
 
+#change wine source
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/wine-builds/debian/ bullseye main" > /etc/apt/sources.list.d/winehq.list
 
 #deps
 RUN apt-get update && apt-get install -y \
